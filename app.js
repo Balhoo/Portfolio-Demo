@@ -17,7 +17,7 @@ projects.forEach((project, index) => {
   const detail = document.createElement('details');
   detail.append(translated('summary', 'Decisiones y alcance', 'Decisions and scope'), translated('p', project.detailEs, project.detailEn));
   body.append(category, name, translated('p', project.es, project.en), tags, detail);
-  const action = translated(project.url ? 'a' : 'span', project.url ? (project.demo ? 'Abrir demo ↗' : 'Ver repositorio ↗') : 'Práctica · privado', project.url ? (project.demo ? 'Open demo ↗' : 'View repository ↗') : 'Training · private');
+  const action = translated(project.url ? 'a' : 'span', project.url ? (project.demo ? 'Abrir demo ↗' : 'Ver repositorio ↗') : (project.statusEs ?? 'Práctica · privado'), project.url ? (project.demo ? 'Open demo ↗' : 'View repository ↗') : (project.statusEn ?? 'Training · private'));
   action.className = 'demo'; if (project.url) action.href = project.url;
   article.append(number, body, action); section.insertBefore(article, section.querySelector('.scope'));
 });
